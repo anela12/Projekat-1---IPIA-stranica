@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Kursevi IPI</title>
+		<link rel="stylesheet" a href="izgled.css">
+    </head>
+    <body>
+	<header>
+	<a href= "index.html">
+        <img src="logo-ipi.png" alt="Kursevi IPI"> 
+		</a>
+		<nav>
+		<ul>
+					<li><a href="index.html">O kursevima</a></li>
+					<li><a href="popis.html">Popis kurseva</a></li>
+					<li><a href="raspored.html">Raspored kurseva</a></li>
+					<li><a href="StudentFunZone.html">Student Fun Zone</a></li>
+					<li><a href="kontakt.html">Kontakt</a></li>
+				</ul>
+		</nav>
+		</header>
+		
+		<article>
+        <h2>Kontakt</h2>        
+		<img src="srce.jpg" alt="IPI Akademija"
+		 style="width:auto;height:350px;">
+        <p>Do IPI-ja se može doći javnim gradskim prevozom ili taksijem.</p>
+        <p>Naša adresa je:</p>
+        <p>Sveučilišni računski centar<br>
+            Kulina bana br. 2 (Skver)<br>
+            Tuzla<br>
+            75000<br>
+            Bosna i Hercegovina</p>
+		<p>Naš broj telefona je <a href="tel:+000333555">+000333555</a> </p>
+		<p>Naša mail adresa je <a href= "mailto:info@ipi-akademija.ba"> info@ ipi-akademija.ba </a> </p>
+		
+
+
+
+        
+        <form>
+		
+		<h2>Kontakt forma</h2>
+		
+		<form action="mailto:info@ipi-akademija.ba" method="post" enctype="text/plain">
+		
+		<label for="ime">Ime i prezime:</label><br>
+		<input type="text" id="ime" name="Ime i prezime" required minlength="4"><br><br>
+		
+		<label for="email">Email adresa:</label><br>
+		<input type="email" id="email" name="Email" required> <br><br>
+		
+		<label for="telefon">Broj telefona:</label><br>
+		<input type="tel" id="telefon" name="Broj telefona"   
+		pattern="^\+?[0-9]{3,15}$" 
+        placeholder="+38761123456" required><br><br>
+		
+		<label for="poruka">Poruka:</label><br>
+		<textarea id="poruka" name="Poruka"  rows="5" cols="30" required></textarea><br><br>
+
+		<input type="checkbox" id="tc" name="T&C" required>
+		<label for="tc">Prihvatam uslove korištenja </label><br><br>
+		
+		<input type="checkbox" id="newsletter" name="Newsletter"  required>
+		<label for="newletter">Želim primati newsletter</label><br><br>
+		
+		<input type="submit" value="Pošalji">
+		<input type="reset" value="Obriši">
+		
+		</form>
+		 
+		
+		
+		
+		
+		
+		</article>
+        <footer>
+        &copy; Internacionalna poslovno-informaciona akademija Tuzla
+		</footer>
+    </body>
+</html>

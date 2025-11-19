@@ -1,0 +1,139 @@
+
+body {
+    margin: 0;
+    font-family: 'Segoe UI', Tahoma, sans-serif;
+    background: linear-gradient(135deg, #fbe7ff, #f2c7ff);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+}
+
+h1 {
+    color: #7a008c;
+    margin-bottom: 15px;
+    text-shadow: 1px 1px 3px rgba(170, 0, 170, 0.2);
+}
+
+p, label {
+    color: #5a0070;
+    font-size: 16px;
+}
+
+
+button, input[type="submit"], input[type="reset"] {
+    background: #c44bff;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    padding: 10px 18px;
+    font-size: 15px;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+button:hover,
+input[type="submit"]:hover,
+input[type="reset"]:hover {
+    background: #a41ad9;
+    transform: scale(1.05);
+}
+
+
+.toolbar {
+    background: #ffe6ff;
+    padding: 12px 18px;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(170, 0, 170, 0.25);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 15px;
+}
+
+.toolbar label {
+    color: #7a008c;
+    font-weight: 600;
+}
+
+canvas {
+    background: white;
+    border-radius: 14px;
+    box-shadow: 0 4px 15px rgba(170, 0, 170, 0.35);
+    max-width: 90vw;
+    max-height: 70vh;
+    touch-action: none;
+}
+
+footer {
+    margin-top: 25px;
+    font-size: 13px;
+    color: #7a008c;
+}
+
+
+table {
+    border-collapse: collapse;
+    margin: 20px auto;
+    width: 90%;
+    max-width: 900px;
+    text-align: center;
+    font-size: 18px;
+    background-color: #f7e6ff; 
+    border: 3px solid #7a00a3; 
+    border-radius: 12px;
+}
+
+td {
+    border: 2px solid #7a00a3;
+    padding: 28px 12px;
+    font-weight: bold;
+    color: #4b0066;
+}
+
+
+tr:nth-child(odd) {
+    background-color: #f1d7ff;
+}
+
+tr:nth-child(even) {
+    background-color: #efd9ff;
+}
+
+
+form {
+    background: #ffe6ff;
+    padding: 20px 25px;
+    border-radius: 15px;
+    box-shadow: 0 4px 12px rgba(170, 0, 170, 0.25);
+    width: 90%;
+    max-width: 700px;
+}
+
+input[type="radio"],
+input[type="checkbox"] {
+    accent-color: #a129d4; 
+}
+
+
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+textarea {
+    width: 95%;
+    padding: 10px;
+    margin-top: 5px;
+    border: 2px solid #a129d4;
+    border-radius: 10px;
+    outline: none;
+    font-size: 15px;
+    color: #4b0066;
+    background: #fff9ff;
+}
+
+input:focus,
+textarea:focus {
+    border-color: #7a00a3;
+    box-shadow: 0 0 5px rgba(170, 0, 170, 0.4);
+}
