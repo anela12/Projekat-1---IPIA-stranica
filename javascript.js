@@ -82,4 +82,54 @@ if(!drawing) return;
     link.click();
   });
 
- 
+ document.getElementById("pdfBtn").addEventListener("click", () => {
+    const image = canvas.toDataURL("image/png");
+    const newWindow = window.open("");
+
+    newWindow.document.write(`
+        <html>
+        <head><title>Snimi PDF</title></head>
+        <body style="margin:0">
+            <img src="${image}" style="width:100%">
+        </body>
+        </html>
+    `);
+
+    newWindow.document.close();
+
+    
+    newWindow.onload = () => {
+        newWindow.print();
+        newWindow.close();
+    };
+});
+
+const popup = document.getElementById("emailPopup");
+const mailBtn = document.getElementById("mailBtn");
+const sendEmailBtn = document.getElementById("sendEmailBtn");
+const cancelEmailBtn = document.getElementById("cancelEmailBtn");
+
+mailBtn.addEventListener("click", () => {
+    popup.style.display = "flex";   // VAŽNO!
+});
+
+cancelEmailBtn.addEventListener("click", () => {
+    popup.style.display = "none";
+});
+
+sendEmailBtn.addEventListener("click", () => {
+    const email = document.getElementById("emailInput").value;
+
+    if (!email) {
+        alert("Unesite email adresu!");
+        return;
+    }
+
+    const image = canvas.toDataURL("image/png");
+
+    const link = `mailto:${email}?subject=Moj%20crtez&body=Ovo%20je%20slika%20crteza.%0A%0A${image}`;
+
+    window.location.href = link;
+
+    popup.style.display = "none";
+});

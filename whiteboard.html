@@ -25,15 +25,28 @@
 <button id="eraserBtn">Briši</button>
 <button id="clearBtn">Čista ploča</button>
 <button id="saveBtn">Snimi</button>
+<button id="pdfBtn">Snimi kao PDF</button>
+<button id="mailBtn">Pošalji mailom</button>
 </div>
 
 <canvas id="board" width="900" height="500"></canvas>
+
 
 <footer>
 Web programiranje 2025 &copy Internacionalna poslovno-informaciona akademija Tuzla
 </footer>
 
+<div id="emailPopup" class="popup-overlay">
+<div class="popup">
+<h3>Pošalji crtež mailom</h3>
+<input type="email" id="emailInput" placeholder="Unesite email" required>
 
+ <div class="popup-buttons">
+ <button id="sendEmailBtn">Pošalji</button>
+ <button id="cancelEmailBtn">Poništi</button>
+ </div>
+ </div>
+</div>
 
 </body>
 </html>
