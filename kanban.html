@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kanban ploča</title>
+<link rel="stylesheet" href="kanban.css">
+<script src="kanban.js" defer></script>
+</head>
+
+<body>
+<h1> Kanban ploča</h1>
+
+<div class="buttons">
+<button id="addTaskBtn">Dodaj zadatak</button>
+<button id="saveBoardBtn">Snimi</button>
+<button id="clearBoardBtn">Očisti ploču</button>
+
+</div>
+
+<div id="taskModal" class="modal">
+<div class="modal-content">
+<h3>Dodaj zadatak</h3>
+<input type="text" id="taskInput" placeholder="Vaš zadatak..."/>
+<div class="modal-buttons">
+<button id="modalAdd">Dodaj</button>
+<button id="modalCancel">Poništi</button>
+</div>
+</div>
+</div>
+
+<div id="clearModal" class="modal">
+<div class="modal-content">
+<h3>Očisti cijelu ploču?</h3>
+<p>Ova radnja se ne može poništiti</p>
+<div class="modal-buttons">
+<button id="clearYes" style="background: #4B0082;;">Očisti</button>
+<button id="clearNo">Poništi</button>
+</div>
+</div>
+</div>
+
+<div class="board">
+<div class="column" data-status="todo">
+    <h2>To do</h2>
+    <div class="taskList"></div>
+</div>
+
+<div class="column" data-status="progress">
+    <h2>In progress</h2>
+    <div class="taskList"></div>
+</div>
+
+<div class="column" data-status="done">
+    <h2>Done</h2>
+    <div class="taskList"></div>
+</div>
+</div>
+
+
+<footer>
+<p> Web programiranje 2025 &copy Internacionalna poslovno-informaciona akademija Tuzla </p>
+</footer>
+ 
+</body>
+</html>
