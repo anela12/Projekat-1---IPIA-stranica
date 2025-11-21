@@ -97,3 +97,50 @@ window.addEventListener("click", e => {
         modal.style.display = "none";
     }
 });
+
+document.getElementById("savePdfBtn").addEventListener("click", () => {
+    html2canvas(document.body).then(canvas => {
+        const imgData = canvas.toDataURL("image/png");
+        const { jsPDF } = window.jspdf;
+        const pdf = new jsPDF("p", "mm", "a4");
+
+        let width = pdf.internal.pageSize.getWidth();
+        let height = canvas.height * width / canvas.width;
+
+        pdf.addImage(imgData, "PNG", 0, 0, width, height);
+        pdf.save("kanban_board.pdf");
+    });
+});
+
+const emailModal = document.getElementById("emailModal");
+const emailInput = document.getElementById("emailInput");
+
+document.getElementById("sendMailBtn").addEventListener("click", () => {
+    emailInput.value = "";
+    emailModal.style.display = "block";
+});
+
+document.getElementById("emailCancelBtn").addEventListener("click", () => {
+    emailModal.style.display = "none";
+});
+
+document.getElementById("emailSendBtn").addEventListener("click", () => {
+    let email = emailInput.value.trim();
+    if (email === "") return;
+
+    let tasks = [];
+    document.querySelectorAll(".task").forEach(t => tasks.push(t.textContent));
+
+    let body = "Sadržaj Vaše Kanban ploče:%0D%0A%0D%0A" + tasks.join("%0D%0A");
+
+    window.location.href = `mailto:${email}?subject=Kanban ploča&body=${body}`;
+
+    emailModal.style.display = "none";
+});
+
+window.addEventListener("click", e => {
+    if (e.target === emailModal) {
+        emailModal.style.display = "none";
+    }
+});
+
