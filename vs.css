@@ -1,171 +1,132 @@
-* General page styling */
+:root {
+  --bg: #E6DAF0;
+  --accent: #4B0082;
+  --btn: #9b59b6;
+}
+* { box-sizing: border-box; }
+
 body {
   margin: 0;
   font-family: "Segoe UI", Tahoma, sans-serif;
-  background: #E6DAF0; 
+  background: var(--bg);
+  color: #3D0066;
   display: flex;
   flex-direction: column;
   align-items: center;
-  height: 100vh;
-  overflow: hidden;
-  color: #3D0066; 
+  gap: 12px;
+  padding: 16px;
+  min-height: 100vh;
+}
+h1 {
+  color: var(--accent);
+  margin: 6px 0;
+  text-align: center;
 }
 
-h1 {
-  margin-top: 20px;
-  color: #4B0082; 
-  text-align: center;
-  text-shadow: 1px 1px 2px rgba(0,0,0,0.2);
-}
-/* Stiliziranje alatne trake */
 .toolbar {
-  background: rgba(230, 200, 250, 0.9); 
-  padding: 12px 20px;
-  border-radius: 12px;
-  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+  background: rgba(230,200,250,0.95);
+  padding: 10px;
+  border-radius: 10px;
   display: flex;
-  gap: 10px;
-  margin: 15px 0;
-  justify-content: center; 
-  align-items: center;
+  gap: 8px;
+  box-shadow: 0 3px 10px rgba(0,0,0,0.15);
   z-index: 2;
 }
+
 button {
-  background: #9b59b6; 
-  color: white;
+  background: var(--btn);
+  color: #fff;
   border: none;
+  padding: 8px 12px;
   border-radius: 8px;
-  padding: 8px 14px;
-  font-size: 14px;
   cursor: pointer;
-  transition: background 0.2s;
+  font-size: 14px;
 }
+button:hover { opacity: 0.95; }
 
-button:hover {
-  background: #7d3c98; 
-}
-
-/* Podrucje pluto ploce */
 #board {
   position: relative;
   width: 100%;
-  min-height: 400px; 
-  background: url('pozadina.png');
-  background-size: cover;
+  max-width: 1000px;
+  height: 600px; /* bitno za html2canvas */
   border-radius: 12px;
-  box-shadow: inset 0 4px 15px rgba(0, 0, 0, 0.3);
   overflow: hidden;
+  background: linear-gradient(180deg,#FFF,#F7E9FF);
+  box-shadow: inset 0 4px 15px rgba(0,0,0,0.12), 0 6px 20px rgba(0,0,0,0.08);
+  padding: 10px;
 }
 
-/* Ljepljive biljeske i natpisi */
 .note, .quote, .pinned-img {
- position: absolute;
- padding: 10px;
- border-radius: 8px;
- cursor: move;
- user-select: none;
- box-shadow: 0 4px 10px rgba(0,0,0,0.3);
- transition: transform 0.1s ease;
+  position: absolute;
+  padding: 10px;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.18);
+  cursor: move;
+  user-select: none;
+  min-width: 100px;
 }
-/* Paleta boja ljepljivih biljeski */
-.note.color1 { background: #f3e5f5; } 
+
+.note.color1 { background: #f3e5f5; }
 .note.color2 { background: #e1bee7; }
 .note.color3 { background: #ce93d8; }
-.note.color4 { background: #ba68c8; }
-.note.color5 { background: #ab47bc; }
-.note.color6 { background: #9c27b0; }
 
-/* Podrucje za biljeske koje se moze uredjivati */
-.note[contenteditable="true"] {
- outline: none;
- min-width: 100px;
- min-height: 60px;
- font-size: 14px;
-}
-
-/* Stil citata */
 .quote {
- font-family: "Georgia", serif;
- color: #4b382a;
- background: #fff5e6;
- font-style: italic;
- text-align: center;
- width: 200px;
+  background: #fff5e6;
+  font-style: italic;
+  width: 200px;
+  text-align: center;
 }
-/* Slike */
+
 .pinned-img img {
- width: 120px;
- height: auto;
- border-radius: 8px;
+  width: 120px;
+  height: auto;
+  border-radius: 8px;
 }
-footer {
- font-size: 13px;
- color: #5b4636;
- margin: 10px;
-}
-/* X Ikona za brisanje (bez kruga, minimalisticki stil)
-*/
+
 .delete-btn {
   position: absolute;
-  top: 2px;
+  top: 4px;
   right: 6px;
   background: none;
   border: none;
-  color: #800080; /* ljubičasta */
   font-size: 18px;
-  font-weight: bold;
   cursor: pointer;
+  color: #800080;
   opacity: 0;
-  z-index: 1000;
-  transition: opacity 0.2s ease, color 0.2s ease, transform 0.1s ease;
-  text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.6);
+  transition: opacity 0.15s;
 }
 
-/* Pokazi X prilikom hovera misa */
 .note:hover .delete-btn,
 .pinned-img:hover .delete-btn,
-.quote:hover .delete-btn {
- opacity: 1;
-}
-/* Suptilna hover animacija */
-.pinned-img .delete-btn:hover {
- color: #ff0000;
- transform: scale(1.15);
- background:transparent !important;
-}
-.note .delete-btn:hover {
- color: #ff0000;
- transform: scale(1.15);
- background:transparent !important;
-}
-.quote .delete-btn:hover {
- color: #ff0000;
- transform: scale(1.15);
- background:transparent !important;
-}
-.note a {
- background:transparent !important;
- outline: none;
-}
-.quote a {
- background:transparent !important;
- outline: none;
-}
-.quote:focus {
- outline: none;
-}
-.quote .delete-btn:focus {
- outline: none;
-}
-.note .delete-btn:focus {
- outline: none;
-}
-.pinned-img {
- box-shadow: 0 0px 0px rgba(0,0,0,0.3);
-}
+.quote:hover .delete-btn { opacity: 1; }
+
 footer {
   font-size: 13px;
   color: #3D0066;
-  margin: 10px;
   text-align: center;
 }
+
+#popup {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.55);
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+}
+#popup .popup {
+  background: #E6E6FA;
+  padding: 18px;
+  border-radius: 12px;
+  width: 320px;
+  text-align: center;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.25);
+}
+#popup input[type="email"] {
+  width: 100%;
+  padding: 8px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+}
+.small { font-size: 12px; color: #333; margin-top: 8px; }

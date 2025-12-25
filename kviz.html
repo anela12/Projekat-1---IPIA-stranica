@@ -86,8 +86,53 @@ osnovama weba.</p>
 
 
 
+<button type="button" onclick="provjeri()">Provjerite odgovore</button>
 
-<button type="button"> Provjerite odgovore </button>
+
+<script>
+function provjeri() {
+    let bodovi = 0;
+
+    // Pitanje 1
+    if (document.getElementById("q1a").checked) {
+        bodovi++;
+    }
+
+    // Pitanje 2 
+    if (
+        document.getElementById("q2a").checked &&
+        document.getElementById("q2b").checked &&
+        document.getElementById("q2c").checked &&
+        !document.getElementById("q2d").checked
+    ) {
+        bodovi++;
+    }
+
+    // Pitanje 3
+    if (document.getElementById("q3b").checked) {
+        bodovi++;
+    }
+
+    // Pitanje 4
+    if (
+        document.getElementById("q4a").checked &&
+        document.getElementById("q4b").checked &&
+        document.getElementById("q4d").checked &&
+        !document.getElementById("q4c").checked
+    ) {
+        bodovi++;
+    }
+
+    // Pitanje 5
+    if (document.getElementById("q5b").checked) {
+        bodovi++;
+    }
+
+    alert("Osvojili ste " + bodovi + " / 5 bodova.");
+}
+</script>
+
+
 <footer>
  <p>Created by Anela | Web programiranje</p>
 </footer>
